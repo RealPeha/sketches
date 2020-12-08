@@ -1,4 +1,4 @@
-import { vec2 } from "./Vec2.js";
+import { vec2 } from "../Vec2.js";
 import Point from "./Point.js";
 import Constraint from "./Constraint.js";
 
