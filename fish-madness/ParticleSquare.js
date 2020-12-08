@@ -1,6 +1,6 @@
 import { vec2 } from "../Vec2.js";
 import Particle from "./Particle.js";
-import { r } from "../helpers.ja";
+import { r } from "../helpers.js";
 
 class ParticleSquare {
   constructor(pos, width, height) {
