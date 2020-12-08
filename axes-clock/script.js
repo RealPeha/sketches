@@ -24,7 +24,7 @@ const seconds = {
   pos: center.clone(),
   value: startDate.getSeconds(),
   max: 60,
-  axis: x,
+  axis: y,
   color: "tomato"
 };
 
@@ -40,7 +40,7 @@ const hours = {
   pos: center.clone(),
   value: startDate.getHours(),
   max: 24,
-  axis: y,
+  axis: x,
   color: "tan"
 };
 
