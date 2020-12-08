@@ -96,7 +96,7 @@ canvas.addEventListener("mousedown", () => {
   [...squaresFront, ...squaresBack].forEach(square => {
     if (square.active) {
       const particle = new ParticleSquare(
-        square.pos.copy(),
+        square.pos.clone(),
         square.width,
         square.height
       );

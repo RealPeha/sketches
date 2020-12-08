@@ -18,7 +18,7 @@ class ParticleSquare {
 
     for (let i = 0; i <= 4; i += 2) {
       for (let j = 0; j <= 4; j += 2) {
-        const pos = this.pos.copy();
+        const pos = this.pos.clone();
         pos.x += i * 20;
         pos.y += j * 20;
 
