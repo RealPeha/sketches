@@ -84,6 +84,22 @@ class Vec2 {
     return this;
   }
 
+  reverse() {
+    return this.reverseX().reverseY();
+  }
+
+  reverseX() {
+    this.x = -this.x;
+
+    return this;
+  }
+
+  reverseY() {
+    this.y = -this.y;
+
+    return this;
+  }
+
   get length() {
     return Math.sqrt(this.x ** 2 + this.y ** 2);
   }
