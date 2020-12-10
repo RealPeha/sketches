@@ -104,9 +104,9 @@ const draw = () => {
   [seconds, minutes, hours].forEach(drawPoint);
 
   ctx.fillStyle = "#000";
-  drawText(seconds, vec2(-18, 0));
+  drawText(seconds, vec2(-6, -10));
   drawText(minutes, vec2(-18, 0));
-  drawText(hours, vec2(-6, -10));
+  drawText(hours, vec2(-18, 0));
 };
 
 const loop = t => {
