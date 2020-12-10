@@ -1,4 +1,5 @@
 import Vec2, { vec2 } from "../Vec2.js";
+import { lerp } from "../helpers.js";
 
 const canvas = document.querySelector("#canvas");
 const ctx = canvas.getContext("2d");
@@ -62,15 +63,15 @@ const update = t => {
   updatePoint(minutes);
   updatePoint(hours);
 
-  seconds.value = date.getSeconds();
-  minutes.value = date.getMinutes();
-  hours.value = date.getHours();
+  seconds.value = lerp(seconds.value, date.getSeconds(), 0.4);
+  minutes.value = lerp(minutes.value, date.getMinutes(), 0.4);
+  hours.value = lerp(hours.value, date.getHours(), 0.4);
 };
 
 const drawPoint = point => {
   ctx.beginPath();
   ctx.fillStyle = point.color;
-  ctx.arc(point.pos.x, point.pos.y, 5, 0, PI2);
+  ctx.arc(point.pos.x, point.pos.y, 7, 0, PI2);
   ctx.fill();
 };
 
@@ -80,7 +81,7 @@ const drawAxis = axis => {
 };
 
 const drawText = (point, offset = Vec2.ZERO) => {
-  ctx.fillText(point.value, point.pos.x + offset.x, point.pos.y + offset.y);
+  ctx.fillText(Math.round(point.value), point.pos.x + offset.x, point.pos.y + offset.y);
 };
 
 const draw = () => {
