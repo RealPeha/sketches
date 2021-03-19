@@ -8,6 +8,25 @@ const sketches = [
     createSketch('broken-tiles', 'Broken Tiles'),
     createSketch('cards', 'Cards'),
     createSketch('chaining-spring', 'Chaining Spring'),
+    createSketch('circles', 'Circles'),
+    createSketch('cloth', 'Cloth'),
+    createSketch('drawing-worms', 'Drawing Worms'),
+    createSketch('fish-madness', 'Fish Madness'),
+    createSketch('graph-clock', 'Graph Clock'),
+    createSketch('gravity-spring', 'Gravity Spring'),
+    createSketch('hairy-canvas', 'Hairy Canvas'),
+    createSketch('image-brush', 'Image Brush'),
+    createSketch('image-circles', 'Image Circles'),
+    createSketch('inverse-kinematics', 'Inverse Kinematics'),
+    createSketch('line-noise', 'Line Noise'),
+    createSketch('maybe-works', 'MaybeWorks'),
+    createSketch('multiple-spring', 'Multiple Spring'),
+    createSketch('pannable-grid', 'Pannable Grid'),
+    createSketch('pixel-text', 'Pixel Text'),
+    createSketch('simple-spring', 'Simple Spring'),
+    createSketch('spherical-text', 'Spherical Text'),
+    createSketch('verle', 'Verle'),
+    createSketch('web', 'Web'),
 ]
 
 const goTo = link => {
@@ -34,7 +53,7 @@ sketches.forEach(sketch => {
     link.href = `/${sketch.id}`
     link.classList.add('sketch-link')
 
-    if (sketch.id === sketchId) {
+    if (sketch.id === currentSketch.id) {
         link.classList.add('active')
     }
 
