@@ -7,27 +7,34 @@ const height = document.body.clientHeight
 canvas.width = width
 canvas.height = height
 
-const mouse = vec2(0, 0)
 const spring = 0.01
-const friction = 0.95
+const friction = 0.9
 
-let drag = false
+const center = vec2(400, 200)
 
-canvas.addEventListener('mousemove', e => mouse.set(e.clientX, e.clientY))
-canvas.addEventListener('mouseup', () => (drag = false))
-canvas.addEventListener('mousedown', () => (drag = true))
+canvas.addEventListener('mousemove', e => {
+    center.set(e.clientX, e.clientY)
+})
 
-const circle = {
+const circle1 = {
     pos: vec2(0, 200),
     velocity: vec2(0, 0),
     r: 20,
+    parent: { pos: center },
 }
 
-const points = [vec2(200, 200), vec2(400, 150), vec2(300, 300)]
+const circle2 = {
+    pos: vec2(0, 200),
+    velocity: vec2(0, 0),
+    r: 20,
+    parent: circle1,
+}
+
+const circles = [circle1, circle2]
 
 const update = () => {
-    points.forEach(point => {
-        const dir = point.clone().substract(circle.pos)
+    circles.forEach(circle => {
+        const dir = circle.parent.pos.clone().substract(circle.pos)
 
         const acceleration = dir.multiply(spring)
 
@@ -35,22 +42,17 @@ const update = () => {
         circle.velocity.multiply(friction)
         circle.pos.add(circle.velocity)
     })
-
-    if (drag) {
-        circle.pos.set(mouse)
-    }
 }
 
 const render = () => {
     ctx.beginPath()
 
-    points.forEach(point => {
-        ctx.moveTo(point.x, point.y)
+    circles.forEach(circle => {
+        ctx.moveTo(circle.parent.pos.x, circle.parent.pos.y)
         ctx.lineTo(circle.pos.x, circle.pos.y)
+        ctx.moveTo(circle.pos.x + circle.r, circle.pos.y)
+        ctx.arc(circle.pos.x, circle.pos.y, circle.r, 0, 2 * Math.PI)
     })
-
-    ctx.moveTo(circle.pos.x + circle.r, circle.pos.y)
-    ctx.arc(circle.pos.x, circle.pos.y, circle.r, 0, 2 * Math.PI)
 
     ctx.stroke()
 }

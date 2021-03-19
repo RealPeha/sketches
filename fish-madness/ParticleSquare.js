@@ -1,58 +1,58 @@
-import { vec2 } from "../Vec2.js";
-import Particle from "./Particle.js";
-import { r } from "../helpers.js";
+import { vec2 } from '../Vec2.js'
+import Particle from './Particle.js'
+import { r } from '../helpers.js'
 
 class ParticleSquare {
-  constructor(pos, width, height) {
-    this.pos = pos;
-    this.w = width;
-    this.h = height;
-    this.particles = [];
+    constructor(pos, width, height) {
+        this.pos = pos
+        this.w = width
+        this.h = height
+        this.particles = []
 
-    this.init();
-  }
-
-  init() {
-    const centerX = this.pos.x + this.w / 2;
-    const centerY = this.pos.y + this.h / 2;
-
-    for (let i = 0; i <= 4; i += 2) {
-      for (let j = 0; j <= 4; j += 2) {
-        const pos = this.pos.clone();
-        pos.x += i * 20;
-        pos.y += j * 20;
-
-        const dirX = centerX - pos.x;
-        const dirY = centerY - pos.y;
-
-        const dir = -r(50, 70) / Math.pow(dirX ** 2 + dirY ** 2, 1.5);
-
-        const velocity = vec2(dirX * dir, -r(1, 6));
-        const acceleration = vec2(0, 0.2);
-        const particle = new Particle(pos, velocity, acceleration);
-
-        this.particles.push(particle);
-      }
+        this.init()
     }
-  }
 
-  update() {
-    const visibleParticles = [];
+    init() {
+        const centerX = this.pos.x + this.w / 2
+        const centerY = this.pos.y + this.h / 2
 
-    this.particles.forEach(particle => {
-      particle.update();
+        for (let i = 0; i <= 4; i += 2) {
+            for (let j = 0; j <= 4; j += 2) {
+                const pos = this.pos.clone()
+                pos.x += i * 20
+                pos.y += j * 20
 
-      if (particle.opacity > 0) {
-        visibleParticles.push(particle);
-      }
-    });
+                const dirX = centerX - pos.x
+                const dirY = centerY - pos.y
 
-    this.particles = visibleParticles;
-  }
+                const dir = -r(50, 70) / Math.pow(dirX ** 2 + dirY ** 2, 1.5)
 
-  draw(ctx) {
-    this.particles.forEach(particle => particle.draw(ctx));
-  }
+                const velocity = vec2(dirX * dir, -r(1, 6))
+                const acceleration = vec2(0, 0.2)
+                const particle = new Particle(pos, velocity, acceleration)
+
+                this.particles.push(particle)
+            }
+        }
+    }
+
+    update() {
+        const visibleParticles = []
+
+        this.particles.forEach(particle => {
+            particle.update()
+
+            if (particle.opacity > 0) {
+                visibleParticles.push(particle)
+            }
+        })
+
+        this.particles = visibleParticles
+    }
+
+    draw(ctx) {
+        this.particles.forEach(particle => particle.draw(ctx))
+    }
 }
 
-export default ParticleSquare;
+export default ParticleSquare

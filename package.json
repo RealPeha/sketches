@@ -1,0 +1,14 @@
+{
+  "name": "sketches",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/RealPeha/sketches",
+  "author": "RealPeha <real.peha@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint ./ --fix"
+  },
+  "devDependencies": {
+    "eslint": "^7.22.0"
+  }
+}
