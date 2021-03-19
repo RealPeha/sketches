@@ -39,11 +39,6 @@ html, body {
     align-items: center;
 }
 
-.about-sketch h2 {
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
 .circle-button {
     background: transparent;
     border: 2px solid #222;

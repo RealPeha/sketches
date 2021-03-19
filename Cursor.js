@@ -8,14 +8,8 @@ class Cursor {
         this.movement = movement
         this.radius = radius
         this.element = element
-        this.prevMouse = {
-            x: 0,
-            y: 0,
-        }
-        this.mouse = {
-            x: -20,
-            y: -20,
-        }
+        this.prevMouse = { x: 0, y: 0 }
+        this.mouse = { x: -20, y: -20 }
         this.styles = {
             scale: 1,
             opacity: 1,
@@ -53,9 +47,7 @@ class Cursor {
         const { x, y } = this.prevMouse
 
         this.element.style.opacity = this.styles.opacity
-        this.element.style.transform = `translateX(${x}px) translateY(${y}px) scale(${
-            this.styles.scale
-        })`
+        this.element.style.transform = `translate(${x}px, ${y}px) scale(${this.styles.scale})`
     }
 }
 

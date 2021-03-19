@@ -36,11 +36,13 @@ class EventEmitter {
     remove(event, listener) {
         const listeners = this.listeners.get(event)
   
-        listeners.forEach(list => {
-            if (list === listener) {
-                listeners.delete(list)
-            }
-        })
+        if (listeners) {
+            listeners.forEach(list => {
+                if (list === listener) {
+                    listeners.delete(list)
+                }
+            })
+        }
     }
 }
   

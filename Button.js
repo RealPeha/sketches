@@ -54,8 +54,6 @@ class Button extends EventEmitter {
             this.emit('leave')
         }
     }
-
-    render() {}
 }
 
 export default Button
