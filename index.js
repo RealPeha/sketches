@@ -9,7 +9,7 @@ const sketches = [
     createSketch('cards', 'Cards'),
     createSketch('chaining-spring', 'Chaining Spring'),
     createSketch('circles', 'Circles'),
-    createSketch('cloth', 'Cloth'),
+    createSketch('cloth', 'Cloth?'),
     createSketch('drawing-worms', 'Drawing Worms'),
     createSketch('fish-madness', 'Fish Madness'),
     createSketch('graph-clock', 'Graph Clock'),
