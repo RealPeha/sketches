@@ -51,6 +51,7 @@ const sketchMenu = document.querySelector('#sketch-menu')
 sketches.forEach(sketch => {
     const link = document.createElement('a')
     link.href = `/${sketch.id}`
+    link.title = sketch.name
     link.classList.add('sketch-link')
 
     if (sketch.id === currentSketch.id) {
