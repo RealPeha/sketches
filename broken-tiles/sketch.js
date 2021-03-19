@@ -58,8 +58,8 @@ canvas.addEventListener('mousemove', e => {
     const mouseY = e.clientY - screenOffset.y
 
     screenOffset.set(
-        (mouseX * offsetFactor) / width - offsetFactor / 2,
-        (mouseY * offsetFactor) / width - offsetFactor / 2,
+        Math.floor((mouseX * offsetFactor) / width - offsetFactor / 2),
+        Math.floor((mouseY * offsetFactor) / width - offsetFactor / 2),
     )
 
     const square = squares.find(({ pos, size }) => {
@@ -71,7 +71,7 @@ canvas.addEventListener('mousemove', e => {
         )
     })
 
-    if (!square) {
+    if (!square || square.iteration > 7) {
         return
     }
 
@@ -117,12 +117,12 @@ const update = () => {
 
 const render = () => {
     squares.forEach(square => {
-        ctx.fillStyle = `hsl(14, 82%, ${50 - square.iteration * 5}%)`
+        ctx.fillStyle = `hsl(14, 82%, ${60 - square.iteration * 7}%)`
         ctx.fillRect(
             square.pos.x + screenOffset.x,
             square.pos.y + screenOffset.y,
-            square.size,
-            square.size,
+            square.size + 1,
+            square.size + 1,
         )
     })
 }
