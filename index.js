@@ -50,7 +50,7 @@ const sketchMenu = document.querySelector('#sketch-menu')
 
 sketches.forEach(sketch => {
     const link = document.createElement('a')
-    link.href = `/${sketch.id}`
+    link.href = `${sketch.id}`
     link.title = sketch.name
     link.classList.add('sketch-link')
 
@@ -80,7 +80,7 @@ const button = new Button(document.querySelector('.circle-button'), currentSketc
         document.body.style.backgroundColor = 'indianred'
     })
     .on('click', () => {
-        goTo(`/${currentSketch.id}`)
+        goTo(`${currentSketch.id}`)
     })
 
 const render = () => {
